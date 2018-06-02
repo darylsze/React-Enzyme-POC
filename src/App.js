@@ -1,16 +1,35 @@
-import React, {Component} from 'react';
+// @flow
+
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Footer from "./containers/Footer";
 import LoadButton from "./components/LoadButton";
+import {List} from 'immutable'
 
-class App extends Component {
+type State = {
+  footerItems: Array<any>
+}
+
+class App extends React.PureComponent<State> {
+  constructor(...args) {
+    super(...args)
+    this.state = {
+      footerItems: List()
+    }
+    console.log('old state:' + JSON.stringify(this.state))
+  }
+
   onClickHandler = () => {
     console.log('on click handler')
+    this.setState(({footerItems}) => ({
+      footerItems: footerItems.push('a')
+    }))
+    console.log('new state:' + JSON.stringify(this.state))
   }
 
   render() {
-    const {footerItems} = this.props
+    const {footerItems} = this.state
 
     return (
       <div className="App">

@@ -13,7 +13,7 @@ describe('footer', ()=>{
     expect(footer.find('ul').children()).toHaveLength(0)
     console.log('no ul chilren found')
     const mockItems = ['a', 'b', 'c']
-    footer.setState({items:mockItems});
+    footer.setProps({items:mockItems});
     expect(footer.find('ul').children().length).toBe(mockItems.length)
     console.log('got 3 children')
   })

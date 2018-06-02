@@ -1,21 +1,28 @@
+// @flow
 import React from "react";
 
-export default class Footer extends React.PureComponent {
-  constructor(...args) {
-    super(...args)
-    this.state = {
-      items: []
-    }
-  }
+type Props = {
+  items: Array<string>
+}
 
+
+export default class Footer extends React.PureComponent<Props> {
   render() {
+    const { items } = this.props
+
     return (
       <ul>
-        {this.state.items.map((item,index) => {
-          return <li key={index}>i am item ${item}</li>
-        })
+        {
+          items.map((item, index) => {
+            return <li key={index}>i am item {item}</li>
+          })
         }
       </ul>
     )
   }
+}
+
+
+Footer.defaultProps = {
+  items: []
 }
