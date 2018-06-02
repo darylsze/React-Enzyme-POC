@@ -6,6 +6,7 @@ import './App.css';
 import Footer from "./containers/Footer";
 import LoadButton from "./components/LoadButton";
 import {List} from 'immutable'
+import Header from "./components/Header";
 
 type State = {
   footerItems: Array<any>
@@ -33,10 +34,11 @@ class App extends React.PureComponent<State> {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        {/*<header className="App-header">*/}
+          {/*<img src={logo} className="App-logo" alt="logo"/>*/}
+          {/*<h1 className="App-title">Welcome to React</h1>*/}
+        {/*</header>*/}
+        <Header bgColor={'#255111'}/>
         <LoadButton
           onClickHandler={this.onClickHandler}
         />
